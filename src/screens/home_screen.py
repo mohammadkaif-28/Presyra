@@ -1,6 +1,6 @@
 import streamlit as st
 from src.components.footer import footer_home
-
+from datetime import datetime
 
 
 def home_screen():
@@ -25,6 +25,7 @@ def home_screen():
         header {visibility: hidden;}
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
+        .block-container { padding-top: 1.5rem !important; }
 
         .hero-wrapper {
             text-align: center;
@@ -173,7 +174,7 @@ def home_screen():
             </div>
             <div class="main-title">Welcome to Presyra</div>
             <div class="main-subtitle">
-                Select your secure workspace portal below to manage real-time tracking, compliance reports, and class rosters.
+                AI-powered attendance tracking with face and voice recognition for smarter classroom management.
             </div>
         </div>
         """,
@@ -214,10 +215,19 @@ def home_screen():
             st.session_state['login_type'] = 'teacher'
             st.rerun()
 
+    current_year = datetime.now().year
+
     st.markdown(
-        """
-        <div style="text-align: center; color: #64748b; margin-top: 5rem; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2rem;">
-            &copy; 2026 Presyra Enterprise &bull; High-Performance Cloud Attendance Management
+        f"""
+        <div style="
+            text-align: center;
+            color: #64748b;
+            margin-top: 5rem;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 2rem;
+        ">
+            &copy; {current_year} Presyra &bull; Intelligent Attendance Management System
         </div>
         """,
         unsafe_allow_html=True,

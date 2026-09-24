@@ -1,3 +1,6 @@
+# for web app
+streamlit
+
 # Utilitites
 numpy 
 pandas
@@ -21,7 +24,9 @@ segno
 # for image processing
 pillow
 
-# for web app
-streamlit
 
-
+# Voice recognition
+librosa
+resemblyzer
+torch
+webrtcvad-wheels
