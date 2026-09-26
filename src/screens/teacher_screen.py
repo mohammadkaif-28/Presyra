@@ -13,7 +13,9 @@ from src.components.dialog_attendance_results import attendance_result_dialog
 
 from src.pipelines.face_pipeline import predict_attendance
 
-from datetime import datetime
+
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 import numpy as np
 import pandas as pd
 
@@ -256,16 +258,32 @@ def teacher_tab_attendance_records():
 
         ts = r.get("timestamp")
 
+        # Convert Supabase UTC timestamp to India Standard Time
+        if ts:
+            dt = datetime.fromisoformat(
+                ts.replace("Z", "+00:00")
+            )
+
+            # Make sure naive timestamps are treated as UTC
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+
+            # Convert UTC → IST
+            local_dt = dt.astimezone(
+                ZoneInfo("Asia/Kolkata")
+            )
+
+            display_time = local_dt.strftime(
+                "%d-%m-%Y || %I:%M %p"
+            )
+
+        else:
+            display_time = "N/A"
+
         data.append({
             "ts_group": ts.split(".")[0] if ts else None,
 
-            "Time": (
-                datetime.fromisoformat(ts).strftime(
-                    "%d-%m-%Y || %I:%M %p"
-                )
-                if ts
-                else "N/A"
-            ),
+            "Time": display_time,
 
             "Subject": r["subjects"]["name"],
 

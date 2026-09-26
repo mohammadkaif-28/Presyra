@@ -1,14 +1,28 @@
-﻿.env
-.vscode
+﻿# Environment & secrets
+.env
+.env.*
+.streamlit/secrets.toml
 
-*.pyc
-.DS_Store
-__pycache__/
-
+# Virtual environment
 venv/
+.venv/
 
-.streamlit/
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build / distribution
 dist/
 
-
+# Logs
+*.log

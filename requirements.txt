@@ -10,7 +10,9 @@ scikit-learn
 # face detection
 dlib-bin
 
-git+https://github.com/ageitgey/face_recognition_models
+# for face recognition models
+#git+https://github.com/ageitgey/face_recognition_models
+./docker_packages/face_recognition_models-0.3.0.tar.gz
 setuptools<70.0.0
 
 #Database
@@ -27,6 +29,6 @@ pillow
 
 # Voice recognition
 librosa
-resemblyzer
-torch
+#resemblyzer
+#torch
 webrtcvad-wheels
