@@ -29,7 +29,7 @@ pillow
 
 # Voice recognition
 librosa
-resemblyzer==0.1.4
+resemblyzer==0.1.4 --no-deps
 torch==2.14.0+cpu
 webrtcvad-wheels
 
