@@ -29,6 +29,8 @@ pillow
 
 # Voice recognition
 librosa
-#resemblyzer
-#torch
+resemblyzer==0.1.4
+torch==2.14.0+cpu
 webrtcvad-wheels
+
+--extra-index-url https://download.pytorch.org/whl/cpu
